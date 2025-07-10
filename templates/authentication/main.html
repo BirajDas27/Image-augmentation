@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script>
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader");
+            loader.classList.add("loader--hidden");
+
+            loader.addEventListener("transitioned", () => {
+                document.body.removeChild(loader);
+            });
+        })
+    </script>
+</head>
+{% load static %}
+<body>
+    <div class="loader">
+        <img src="{% static 'images/logo.png' %}">
+    </div>
+    {% if user.is_authenticated %}
+    {% csrf_token %}
+    <nav>
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" height="50px" width="50px">
+        </div>
+        <a href="/signout">Sign Out</a>
+        <div class="social">
+            <div class="icon"><img src="{% static 'images/icons/facebook.png' %}" onClick='window.open("https://www.facebook.com/")' width="35px" target="_blank"></div>
+            <div class="icon"><img src="{% static 'images/icons/instagram.png' %}" onClick='window.open("https://www.instagram.com/")' width="35px" target="_blank"></div>
+            <div class="icon"><img src="{% static 'images/icons/twitter.png' %}" onClick='window.open("https://twitter.com/?lang=en")' width="35px" target="_blank"></div>
+            <div class="icon"><img src="{% static 'images/icons/youtube.png' %}" onClick='window.open("https://www.youtube.com/")' width="35px" target="_blank"></div>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="display">
+            <div class="add">
+                <img src="{% static 'images/add_bg_removed.png' %}" width="330" height="330">
+            </div>
+    
+            
+            <form id="uploadForm" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="file" name="image" accept="image/*" required aria-invalid="true" id="id_image" multiple>
+                
+                <button class="btn1" type="button" onclick="submitForm('/grayscale'); ">Grayscale</button><br>
+                <button class="btn2" type="button" onclick="submitForm('/verticalFlip')">Vertical flip</button><br>
+                <button class="btn3" type="button" onclick="submitForm('/horizontalFlip')">Horizontal flip</button><br>
+                <button class="btn4" type="button" onclick="submitForm('/rotate')">Rotate</button><br>
+                <button class="btn5" type="button" onclick="submitForm('/filter')">Filter</button><br>
+                <button class="btn6" type="button" onclick="submitForm('/crop')">Crop</button><br>
+
+
+                
+            </form>
+            
+            <div class="new">
+                <img src="{{ obj.image.url }}" id="uploaded_image" width="330" height="330">
+            </div>
+            <div class="new">
+                <img src="#" id="select" width="330" height="330">
+            </div>
+            <div class="augImg">
+                <img src="{{ augmented_image_url }}"  width="330" height="330">
+            </div>
+        </div>
+        
+    </div>
+
+    
+
+    
+    
+    
+
+    {% else %}
+    <h3>Invalid inputs please try again</h3>
+    <br>
+    <button type="submit"><a href="/signup">signUp</a></button>
+    <button type="submit"><a href="/signin">signIn</a></button>
+    
+    {% endif %}
+
+    <script type="text/javascript">
+        id_image.onchange = evt =>{
+            const[file] = id_image.files
+            if(file){
+                select.src = URL.createObjectURL(file)
+            }
+        }
+
+        function submitForm(action){
+            document.getElementById('uploadForm').action = action;
+            document.getElementById('uploadForm').submit();
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/signin.css' %}">
+    <script>
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader");
+            loader.classList.add("loader--hidden");
+
+            loader.addEventListener("transitioned", () => {
+                document.body.removeChild(loader);
+            });
+        })
+    </script>
+</head>
+{% load static %}
+<body>
+    <div class="loader">
+        <img src="{% static 'images/logo.png' %}">
+    </div>
+    <div class="box">
+        <div id="logo" class="glogo">
+            <img src="{% static 'images/logo.png' %}" alt="logo" width="50px" height="50px">
+        </div>
+        <h2>Sign In</h2>
+        <p>Login to your account here</p>
+
+        <form action="/signin" method="post">
+            {% csrf_token %}
+            <div class="inputBox">
+                <input type="text" id="username" name="username" value="" required onkeyup="this.setAttribute('value',this.value);">
+                <label for="username">Username</label>
+            </div>
+            <div class="inputBox">
+                <input type="password" id="pass1" name="pass1" value="" required onkeyup="this.setAttribute('value',this.value);">
+                <label for="pass1">Password</label>
+            </div>
+            <div class="tosignup">
+                <a href="/signup">New user?</a>
+            </div>
+
+            <button type="submit" name="signIn" value="Sign In">Sign In</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input error</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'css/inpErr.css'%}">
+    <script>
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader");
+            loader.classList.add("loader--hidden");
+
+            loader.addEventListener("transitioned", () => {
+                document.body.removeChild(loader);
+            });
+        })
+    </script>
+</head>
+{%load static%}
+<body>
+    <div class="loader">
+        <img src="{% static 'images/logo.png' %}">
+    </div>
+    <div class="whole">
+        <div class="errorimg">
+            <img src="{%static 'images/error.png'%}">
+        </div>
+        <div class="container">
+            <div class="message">
+                <h2>Invalid inputs please try again.</h2>
+            </div>
+            <br>
+            <div class="buttons">
+                <button type="submit"><a href="/signup">signUp</a></button>
+                <button type="submit"><a href="/signin">signIn</a></button>
+            </div>
+            
+        </div>
+    </div>
+    
+</body>
+</html>

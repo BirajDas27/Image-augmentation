@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>authentication</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script>
+        window.addEventListener("load", () => {
+            const loader = document.querySelector(".loader");
+            loader.classList.add("loader--hidden");
+
+            loader.addEventListener("transitioned", () => {
+                document.body.removeChild(loader);
+            });
+        })
+    </script>
+</head>
+{% load static %}
+<body>
+    <div class="loader">
+        <img src="{% static 'images/logo.png' %}">
+    </div>
+    <div>
+        <nav>
+            <div class="logo">
+                <img src="{% static 'images/logo.png' %}" height="50px" width="50px">
+            </div>
+            <a href="#access">Get started</a>
+            <div class="social">
+                <div class="icon"><img src="{% static 'images/icons/facebook.png' %}" onClick='window.open("https://www.facebook.com/")' width="35px" target="_blank"></div>
+                <div class="icon"><img src="{% static 'images/icons/instagram.png' %}" onClick='window.open("https://www.instagram.com/")' width="35px" target="_blank"></div>
+                <div class="icon"><img src="{% static 'images/icons/twitter.png' %}" onClick='window.open("https://twitter.com/?lang=en")' width="35px" target="_blank"></div>
+                <div class="icon"><img src="{% static 'images/icons/youtube.png' %}" onClick='window.open("https://www.youtube.com/")' width="35px" target="_blank"></div>
+
+            </div>
+        </nav>
+        <div class="slider">
+            <div class="slides">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+                <input type="radio" name="radio-btn" id="radio5">
+                <input type="radio" name="radio-btn" id="radio6">
+
+                <div class="slide first">
+                    <div class="first">
+                        <img src="{% static 'examples/eg1.jpg' %}" width="650" height="1000">
+                        <div class="text">
+                            GRAYSCALING
+                        </div>
+                        <img src="{% static 'result/eg1.jpg' %}" width="650" height="1000">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="second">
+                        <img src="{% static 'examples/eg2.jpg' %}" width="650" height="1000">
+                        <div class="text">
+                            VERTICAL FLIPPING
+                        </div>
+                        <img src="{% static 'result/eg2.jpg' %}" width="650" height="1000">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="third">
+                        <img src="{% static 'examples/eg3.jpeg' %}" width="650" height="1000">
+                        <div class="text">
+                            HORIZONTAL FLIPPING
+                        </div>
+                        <img src="{% static 'result/eg3.jpeg' %}" width="650" height="1000">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="forth">
+                        <img src="{% static 'examples/eg4.jpg' %}" width="650" height="1000">
+                        <div class="text">
+                            ROTATION
+                        </div>
+                        <img src="{% static 'result/eg4.jpg' %}" width="650" height="1000">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="fifth">
+                        <img src="{% static 'examples/eg5.jpg' %}" width="650" height="1500">
+                        <div class="text">
+                            APPLYING FILTERS
+                        </div>
+                        <img src="{% static 'result/eg5.jpg' %}" width="650" height="1500">
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="sixth">
+                        <img src="{% static 'examples/eg6.jpg' %}" width="650" height="1000">
+                        <div class="text">
+                            CROPPING
+                        </div>
+                        <img src="{% static 'result/eg6.jpg' %}" width="650" height="1000">
+                    </div>
+                </div>
+
+                <div class="navigation-auto">
+                    <div class="auto-btn1"></div>
+                    <div class="auto-btn2"></div>
+                    <div class="auto-btn3"></div>
+                    <div class="auto-btn4"></div>
+                    <div class="auto-btn5"></div>
+                    <div class="auto-btn6"></div>
+                </div>
+            </div>
+            <div class="navigation-manual">
+                <label for="radio1" class="manual-btn"></label>
+                <label for="radio2" class="manual-btn"></label>
+                <label for="radio3" class="manual-btn"></label>
+                <label for="radio4" class="manual-btn"></label>
+                <label for="radio5" class="manual-btn"></label>
+                <label for="radio6" class="manual-btn"></label>
+            </div>
+        </div>
+        
+
+
+        <div id="access">
+            <button type="submit"><a href="/signup">Sign Up</a></button>
+            <button type="submit"><a href="/signin">Sign In</a></button>
+        </div>
+        
+    </div>
+
+    <script type="text/javascript">
+        var counter = 1;
+        setInterval(function(){
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if(counter > 6){
+                counter = 1;
+            }
+        }, 3500);
+    </script>
+</body>
+</html>
