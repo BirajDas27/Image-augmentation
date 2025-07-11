@@ -1,0 +1,143 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url(/static/images/bg3.png);
+    background-size: cover;
+    font-family: 'Google Sans', 'Noto Sans Myanmar UI', Arial, Helvetica, sans-serif;
+}
+
+.box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25rem;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    border: 3px solid #232323;
+    border-radius: 8px;
+}
+
+.glogo{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+    filter:invert(1)
+}
+
+.box h2{
+    margin: 0 0 0-0.125rem;
+    padding: 0;
+    color: #1b1a1a;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.box p{
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.box .inputBox{
+    position: relative;
+}
+
+.box .inputBox input{
+    width: 93%;
+    padding: 0.625rem 10px;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1.875rem;
+    border: 3px solid #1b1a1a;
+    background: transparent;
+    border-radius: 4px;
+}
+
+.box .inputBox label{
+    position: absolute;
+    top: 0;
+    left: 10px;
+    padding: 0.625rem 0;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: #1b1a1a;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+.box button[type="submit"] {
+    border: none;
+    outline: none;
+    color: #fff;
+    background-color: #1a73e8;
+    padding: 0.625rem 1.25rem;
+    cursor: pointer;
+    border-radius: 0.312rem;
+    font-size: 1rem;
+    float: right;
+}
+
+.box button[type="submit"]:hover {
+    background-color: #287ae6;    
+}
+
+.box .inputBox input:focus ~ label,
+.box .inputBox input:valid ~ label,
+.box .inputBox input:not([value=""]) ~ label {
+    top: -0.5rem;
+    left: 10px;
+    color: #1a73e8;
+    font-size: .75rem;
+    background-image:url(/static/images/bg3.png);
+    height: 10px;
+    padding: 0 5px;
+}
+
+.box .inputBox input:focus{
+    outline: none;
+    border: 2px solid #1a73e8;
+}
+
+/*loading screen*/
+.loader{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #212121;
+    transition: opacity 0.75s , visibility 0.75s;
+    animation-delay: 2s;
+}
+
+.loader--hidden{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader img{
+    height: 5rem;
+    width: 5rem;
+    animation: loading 0.8s ease-in-out infinite;
+}
+
+@keyframes loading{
+    from { transform: rotate(0turn) }
+    to { transform: rotate(0.5turn) }
+}
+
+.tosignup{
+    position: absolute;
+    top: 350px;
+    margin-left: 10px;
+    
+
+}
