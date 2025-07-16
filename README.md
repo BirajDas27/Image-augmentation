@@ -53,9 +53,9 @@ cd image-augmentation-django
 
 ### 2. Create & Activate Virtual Environment
 
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-venv\Scripts\activate     # Windows
+python -m venv {Name_of_VE}<br>
+source {Name_of_VE}/bin/activate  # Linux/macOS<br>
+{Name_of_VE}\Scripts\activate     # Windows<br>
 
 ---
 
