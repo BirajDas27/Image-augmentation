@@ -70,10 +70,16 @@ venv\Scripts\activate     # Windows
 * Image Processing: Pillow
 * Deployment (optional): Render / Heroku / PythonAnywhere
 
+---
+
 ## 📜 License
 
 This project is licensed under the MIT License. Feel free to use and modify it for your own dataset needs.
 
+---
+
 ## 🙌 Acknowledgements
 
 Special thanks to my team members and our guide who worked hard with me to develop this project.
+
+---
