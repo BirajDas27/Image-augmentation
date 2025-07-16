@@ -10,11 +10,13 @@ This is a full-stack web application built using **Django** that allows users to
 
 - Upload images through an intuitive web UI
 - Apply augmentation techniques:
-  - Rotation (90°, 180°, 270°)
-  - Horizontal Flip
-  - Vertical Flip
   - Grayscale
-- Download augmented images as a ZIP
+  - Vertical Flip
+  - Horizontal Flip
+  - Rotation (0°-360°)
+  - Filter
+  - Crop
+- Augmented image is automatically downloaded in the media folder
 - Preview augmentations in real-time
 - Secure file handling and organized file storage
 
@@ -27,7 +29,7 @@ This tool was used in a breast cancer classification project to augment **micros
 - DenseNet121
 - InceptionV3
 
-> Certain transformations like cropping or random zoom were avoided to preserve critical cellular features in pathology slides.
+> Certain transformations like cropping and grayscaling were avoided to preserve critical cellular features in pathology slides.
 
 ---
 
