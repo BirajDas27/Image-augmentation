@@ -1,6 +1,7 @@
 # 🖼️ Image Augmentation Web App (Django)
 
 This is a full-stack web application built using **Django** that allows users to perform various **image augmentation techniques** through a clean and responsive interface. The app is designed to help researchers and data scientists easily expand their image datasets, especially for medical imaging and classification tasks.
+
 ![](screenshots/authentication.png)
 
 ---
